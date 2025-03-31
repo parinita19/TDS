@@ -88,23 +88,13 @@ const Index = () => {
           </div>
 
           <div className="mb-4 flex items-center justify-center">
-            <div className={`w-16 h-16 ${darkMode ? 'bg-blue-600' : 'bg-blue-600'} rounded-full flex items-center justify-center mr-4`}>
-              <span className="text-2xl font-bold text-white">TDS</span>
-            </div>
             <h1 className={`text-4xl md:text-5xl font-bold bg-clip-text text-transparent ${
               darkMode ? 'bg-gradient-to-r from-blue-400 to-purple-500' : 'bg-gradient-to-r from-blue-600 to-purple-700'
             }`}>
               TDS Solver
             </h1>
           </div>
-          <p className={`text-xl ${darkMode ? 'text-slate-300' : 'text-slate-700'} max-w-2xl mx-auto`}>
-            Your AI assistant for Tools in Data Science assignments
-          </p>
-          <div className="mt-2 flex justify-center">
-            <span className={`px-3 py-1 ${darkMode ? 'bg-blue-600' : 'bg-blue-600'} text-white text-xs rounded-full`}>
-              IIT Madras Online Degree Program
-            </span>
-          </div>
+          
         </header>
 
         <main className={`max-w-4xl mx-auto ${cardBg} p-6 md:p-8 backdrop-blur-sm`}>
@@ -130,17 +120,6 @@ const Index = () => {
           </div>
         </main>
 
-        <footer className={`mt-16 text-center ${darkMode ? 'text-slate-400' : 'text-slate-600'} text-sm`}>
-          <p>IIT Madras Online Degree Program • {new Date().getFullYear()}</p>
-          <p className="mt-2">
-            <a 
-              href="mailto:23f2003537@ds.study.iitm.ac.in"
-              className={`underline hover:text-blue-500 transition-colors ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}
-            >
-              23f2003537@ds.study.iitm.ac.in
-            </a>
-          </p>
-        </footer>
       </div>
       
       <Link 
