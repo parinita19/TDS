@@ -155,40 +155,6 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
           Submit
         </Button>
       </div>
-
-      {/* GA Topics Grid */}
-      <div className="mt-8">
-        <h3 className={`text-sm font-medium ${isDarkMode ? 'text-white' : 'text-slate-700'} mb-4`}>Graded Assignment Topics:</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {gaTopics.map((topic) => (
-            <button
-              key={topic.id}
-              type="button"
-              onClick={() => selectTopic(topic.id)}
-              className={`p-4 rounded-lg transition-all text-left ${
-                selectedTopic === topic.id 
-                  ? isDarkMode 
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' 
-                    : 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
-                  : isDarkMode 
-                    ? 'bg-slate-800 text-slate-300 hover:bg-slate-700' 
-                    : 'bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 hover:shadow-md shadow-sm transition-all'
-              }`}
-            >
-              <h4 className={`text-lg font-medium ${
-                isDarkMode 
-                  ? selectedTopic === topic.id ? 'text-white' : 'text-blue-400'
-                  : selectedTopic === topic.id ? 'text-white' : 'text-blue-600'
-              } mb-2`}>
-                {topic.id}: {topic.name}
-              </h4>
-              <p className={`text-sm ${
-                selectedTopic === topic.id ? 'opacity-90' : isDarkMode ? 'opacity-80' : 'text-slate-600'
-              }`}>{topic.description}</p>
-            </button>
-          ))}
-        </div>
-      </div>
     </form>
   );
 };
