@@ -11,12 +11,7 @@ interface ResultDisplayProps {
 
 // Animation phrases for the "thinking" state
 const thinkingPhrases = [
-  "Analyzing question...",
-  "Processing data...",
-  "Searching knowledge base...",
-  "Applying TDS concepts...",
-  "Formulating response...",
-  "Verifying answer...",
+  "Working on the question...",
 ];
 
 const ResultDisplay: React.FC<ResultDisplayProps> = ({ result, loading }) => {
@@ -61,28 +56,9 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ result, loading }) => {
     }
   }, [result, loading]);
 
-  const copyToClipboard = () => {
-    if (result) {
-      navigator.clipboard.writeText(result);
-      toast.success("Copied to clipboard!");
-    }
-  };
 
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-4 flex items-center text-slate-800">
-        {loading ? (
-          <>
-            <BrainCircuitIcon className="animate-pulse mr-2 text-blue-600" size={20} />
-            TDS AI Assistant
-          </>
-        ) : result ? (
-          <>
-            <CheckCircleIcon className="text-green-600 mr-2" size={20} />
-            Generated Answer
-          </>
-        ) : null}
-      </h2>
 
       {loading ? (
         <div className="bg-blue-50 rounded-lg p-6 flex flex-col items-center justify-center min-h-[200px]">
@@ -99,7 +75,6 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ result, loading }) => {
               <div className="w-2 h-2 bg-purple-600 rounded-full animate-bounce delay-100"></div>
               <div className="w-2 h-2 bg-pink-600 rounded-full animate-bounce delay-200"></div>
             </div>
-            <p className="text-xs text-slate-500 mt-4">Using advanced algorithms to solve your TDS question</p>
           </div>
         </div>
       ) : result ? (
@@ -111,27 +86,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ result, loading }) => {
                 <span className="inline-block w-2 h-4 bg-blue-600 ml-1 animate-pulse absolute"></span>
               )}
             </div>
-          </CardContent>
-          <CardFooter className="bg-slate-50 border-t border-slate-300 px-6 py-3 flex justify-between items-center">
-            <span className="text-xs text-slate-600">Answer ready for submission</span>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={copyToClipboard}
-              className="bg-transparent border-blue-300 text-slate-700 hover:bg-blue-50 hover:text-slate-900"
-            >
-              <ClipboardCopyIcon size={14} className="mr-1" />
-              Copy to clipboard
-            </Button>
-          </CardFooter>
-        </Card>
       ) : null}
-
-      {result && (
-        <div className="mt-4 text-sm text-slate-600">
-          <p>This answer is provided for educational purposes. Verify before submission.</p>
-        </div>
-      )}
     </div>
   );
 };
