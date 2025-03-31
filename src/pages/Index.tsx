@@ -69,11 +69,6 @@ const Index = () => {
 
   return (
 
-          <div className="mb-4 flex items-center justify-center">
-          </div>
-          
-        </header>
-
         <main className={`max-w-4xl mx-auto ${cardBg} p-6 md:p-8 backdrop-blur-sm`}>
           <div className="mb-6">
             {loading && (
