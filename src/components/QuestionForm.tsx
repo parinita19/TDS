@@ -66,12 +66,24 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
             reader.readAsArrayBuffer(file);
           }
         });
+      }
+
+      const answer = await generateAnswer(question, fileData);
+      setResult(answer);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      toast.error('An error occurred while generating the answer');
+      setLoading(false);
+    }
+  };
 
   const clearFile = () => {
     setFile(null);
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
+    toast.info('File removed');
   };
 
   const selectTopic = (topicId: string) => {
@@ -80,7 +92,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4" style={{ backgroundColor: 'black' }}>
+    <form onSubmit={handleSubmit} className="space-y-4">
       {/* Animated Text Section - Above the question input */}
       
       <div>
@@ -131,7 +143,9 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
 
         <Button 
           type="submit" 
-          className={`bg-black text-white transition-all shadow-lg hover:shadow-xl`}
+          className={`${
+            isDarkMode 
+          } text-white transition-all shadow-lg hover:shadow-xl`}
         >
           <SendIcon size={16} className="mr-2" />
           Submit
