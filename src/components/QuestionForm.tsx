@@ -21,17 +21,12 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setFile(e.target.files[0]);
-      toast.success(`File "${e.target.files[0].name}" attached`);
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!question.trim()) {
-      toast.error('Please enter a question');
-      return;
-    }
 
     setLoading(true);
     setResult(null);
@@ -73,7 +68,6 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
       setLoading(false);
     } catch (error) {
       console.error(error);
-      toast.error('An error occurred while generating the answer');
       setLoading(false);
     }
   };
@@ -83,13 +77,8 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
-    toast.info('File removed');
   };
 
-  const selectTopic = (topicId: string) => {
-    setSelectedTopic(topicId === selectedTopic ? null : topicId);
-    toast.info(`Filtered to ${topicId} questions`);
-  };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -102,11 +91,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
         <Textarea
           id="question"
           placeholder=""
-          className={`min-h-60 ${
-            isDarkMode 
-              ? 'bg-slate-800 border-slate-700 placeholder-slate-400 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500' 
-              : 'bg-white border-slate-300 placeholder-slate-500 text-slate-800 shadow-sm hover:shadow-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all'
-          }`}
+          className={`bg-black text-white transition-all shadow-lg hover:shadow-xl`}
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
         />
@@ -121,12 +106,8 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
             onChange={handleFileChange}
             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
           />
-          <div className={`${
-            isDarkMode 
-              ? 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700' 
-              : 'bg-white border-blue-200 text-slate-700 hover:bg-slate-50 shadow-sm hover:shadow-md'
-          } border border-dashed rounded-md px-4 py-3 flex items-center gap-2 transition-all duration-200`}>
-            <UploadIcon size={18} className={isDarkMode ? "text-blue-400" : "text-blue-600"} />
+          <div className={`bg-black text-white transition-all shadow-lg hover:shadow-xl`}>
+            <UploadIcon size={18} className={`bg-black text-white transition-all shadow-lg hover:shadow-xl`} />
             <span className="text-sm">{file ? file.name : 'Attach file (optional)'}</span>
           </div>
           {file && (
