@@ -67,18 +67,6 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
             reader.readAsArrayBuffer(file);
           }
         });
-      }
-      
-      const answer = await generateAnswer(question, fileData);
-      setResult(answer);
-      toast.success('Answer generated successfully!');
-    } catch (error) {
-      console.error('Error generating answer:', error);
-      toast.error('Failed to generate answer. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const clearFile = () => {
     setFile(null);
@@ -147,8 +135,6 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
           type="submit" 
           className={`${
             isDarkMode 
-              ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700' 
-              : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
           } text-white transition-all shadow-lg hover:shadow-xl`}
         >
           <SendIcon size={16} className="mr-2" />
