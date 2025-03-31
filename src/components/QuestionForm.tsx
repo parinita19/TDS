@@ -96,7 +96,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
       {/* Animated Text Section - Above the question input */}
       
       <div>
-        <label htmlFor="question" className={`block text-sm font-medium ${isDarkMode ? 'text-white' : 'text-slate-700'} mb-2 flex items-center`}>
+        <label htmlFor="question" className={`bg-black text-white transition-all shadow-lg hover:shadow-xl`}>
           Enter your TDS assignment question:
         </label>
         <Textarea
@@ -143,9 +143,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
 
         <Button 
           type="submit" 
-          className={`${
-            isDarkMode 
-          } text-white transition-all shadow-lg hover:shadow-xl`}
+          className={`bg-black text-white transition-all shadow-lg hover:shadow-xl`}
         >
           <SendIcon size={16} className="mr-2" />
           Submit
