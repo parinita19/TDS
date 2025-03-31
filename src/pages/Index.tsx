@@ -60,12 +60,12 @@ const Index = () => {
   };
 
   const bgGradient = darkMode 
-    ? "bg-gradient-to-b from-slate-900 to-indigo-950" 
-    : "bg-gradient-to-b from-blue-50 to-indigo-100";
+    ? "bg-gradient-to-b from-black to-black" 
+    : "bg-gradient-to-b from-black to-black";
 
   const cardBg = darkMode 
-    ? "bg-slate-800/50 border-slate-700" 
-    : "bg-slate-200/90 border-slate-300 shadow-xl rounded-xl transform hover:scale-[1.01] hover:shadow-2xl transition-all duration-300";
+    ? "bg-black border-black" 
+    : "bg-black border-black shadow-xl rounded-xl transform hover:scale-[1.01] hover:shadow-2xl transition-all duration-300";
 
   return (
 
