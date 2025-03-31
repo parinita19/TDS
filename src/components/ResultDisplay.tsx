@@ -63,16 +63,12 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ result, loading }) => {
         <div className="bg-blue-50 rounded-lg p-6 flex flex-col items-center justify-center min-h-[200px]">
           <div className="text-center space-y-3">
             <div className="relative w-16 h-16 mb-4">
-              <div className="absolute inset-0 rounded-full border-t-2 border-b-2 border-blue-500 animate-spin"></div>
-              <div className="absolute inset-2 rounded-full border-t-2 border-b-2 border-purple-500 animate-spin animate-delay-150"></div>
-              <div className="absolute inset-4 rounded-full border-t-2 border-b-2 border-pink-500 animate-spin animate-delay-300"></div>
-              <CpuIcon className="absolute inset-0 m-auto text-blue-600 animate-pulse" size={24} />
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
             <p className="text-slate-700 font-medium">{currentPhrase}</p>
             <div className="flex justify-center gap-1 mt-2">
-              <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></div>
-              <div className="w-2 h-2 bg-purple-600 rounded-full animate-bounce delay-100"></div>
-              <div className="w-2 h-2 bg-pink-600 rounded-full animate-bounce delay-200"></div>
             </div>
           </div>
         </div>
