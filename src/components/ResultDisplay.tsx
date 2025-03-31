@@ -59,7 +59,6 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ result, loading }) => {
 
   return (
     <div>
-
       {loading ? (
         <div className="bg-blue-50 rounded-lg p-6 flex flex-col items-center justify-center min-h-[200px]">
           <div className="text-center space-y-3">
@@ -86,6 +85,11 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ result, loading }) => {
                 <span className="inline-block w-2 h-4 bg-blue-600 ml-1 animate-pulse absolute"></span>
               )}
             </div>
+          </CardContent>
+          <CardFooter>
+            {/* Add any footer content here if needed */}
+          </CardFooter>
+        </Card>
       ) : null}
     </div>
   );
