@@ -85,7 +85,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ setResult, setLoading, resu
       {/* Animated Text Section - Above the question input */}
       
       <div>
-        <label htmlFor="question" className={`bg-black text-white transition-all shadow-lg hover:shadow-xl`}>
+        <label htmlFor="question" className={`text-white transition-all shadow-lg hover:shadow-xl`}>
           Enter your TDS assignment question:
         </label>
         <Textarea
